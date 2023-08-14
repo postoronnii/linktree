@@ -1,0 +1,32 @@
+{
+  "name": "Nikolai Boiko",
+  "img": "https://pbs.twimg.com/profile_images/1690060603665104898/7YHO9f-G_400x400.jpg",
+  "links": [
+    {
+      "name": "Разговорный Английский с Hyber",
+      "url": "https://gethyber.vercel.app",
+      "img": "https://res.cloudinary.com/dmawxkkv7/image/upload/v1691721906/eng_logo_kxlpek.jpg",
+      "desc": "Learn spoken English and work on your accent!"
+    },
+    {
+      "name": "YouTube",
+      "url": "https://hyber-ten.vercel.app/",
+      "img": "https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc",
+      "desc": "Youtube Channel"
+    }
+  ],
+  "social": [
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/postoronnii"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/postoronnii"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://www.facebook.com/nikolai.boiko.37"
+    }
+  ]
+}

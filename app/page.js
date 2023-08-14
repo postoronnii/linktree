@@ -1,91 +1,53 @@
+import Business from '@/components/Business'
+import {
+  FacebookIcon,
+  InstaIcon,
+  TwitterIcon,
+  VerifiedIcon,
+} from '@/components/Icons'
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import data from '../data.json'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className="flex items-center justify-center flex-col mt-20 mx-auto w-full px-8">
+      <Image
+        className="rounded-full"
+        src={data.img}
+        alt={data.name}
+        width={100}
+        height={100}
+      />
+      <div className="flex items-center gap-2 pb-7 mt-5">
+        <p className="font-semibold text-xl text-gray-100">{data.name}</p>
+        <VerifiedIcon />
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
+      {data.links.map((item, idx) => (
+        <Business key={idx} item={item} />
+      ))}
+      <div className="flex gap-5 items-center mt-4">
+        {data.social.map((i) => {
+          if (i.name.includes('Insta'))
+            return (
+              <a className="hover:scale-110" href={i.url} key={i.name}>
+                <InstaIcon />
+              </a>
+            )
+          // if (i.name.includes('Twit'))
+          //   return (
+          //     <a className="hover:scale-110" href={i.url} key={i.name}>
+          //       <TwitterIcon />
+          //     </a>
+          //   )
+          if (i.name.includes('Face'))
+            return (
+              <a className="hover:scale-110" href={i.url} key={i.name}>
+                <FacebookIcon />
+              </a>
+            )
+        })}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }
